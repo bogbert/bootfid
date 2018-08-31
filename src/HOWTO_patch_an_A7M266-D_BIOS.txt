@@ -1,0 +1,23 @@
+Required tools:
+  . the "AwardMod BIOS Manipulation Tool" by Josef Hill
+  . the "Award BIOS Editor" by Mike Tedder
+  . nasm
+  . bash (or another Bourne shell)
+  . a C compiler to compile patch_for_injection.c
+
+1. Extract the modules of the original BIOS file to a directory using the "AwardMod BIOS Manipulation Tool"
+   One of the extracted modules is called cav_shdw.bin
+2. Copy the cav_shdw.bin module to the current directory (i.e. the bootfid source directory)
+3. Compile patch_for_injection.c
+4. Edit the build_cav_with_bootfid.sh script, to change (if needed) some variables like the multiplier,
+   the confirmation threshold, ...
+5. Run build_cav_with_bootfid.sh, a file named cav_shdw_bf_<vers>_<mult>.bin is created
+6. Copy and rename this file to the "AwardMod BIOS Manipulation Tool" extraction directory to replace the
+   original module
+7. Use the "AwardMod BIOS Manipulation Tool" to rebuild a BIOS file
+8. Open the BIOS file with the "Award BIOS Editor"
+   In "Recognized Item/System BIOS/BIOS ID", edit the Version information and recalc the checksum
+   Then save
+   You may want to close and restart the "AwardMod BIOS Manipulation Tool", and open the BIOS again to
+   verify that the BIOS has not been corrupted when it was saved (this happened to me once)
+9. The BIOS is ready to be flashed

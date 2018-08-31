@@ -1,0 +1,30 @@
+0.02:  Original version by Michael Brown (www.emboss.co.nz)
+
+Versions made by Bogbert:
+
+0.02.1: Make BOOTFID (d80b version) work with the A7M266-D:
+         . enable PowerNow in the chipset if needed
+         . a crash caused by the ds register not being initialized is now fixed
+
+0.02.2: Reduce boot time:
+         . wait time at prompt reduced from 3s to 1s
+         . after BOOTFID completion, only wait if the user has pressed S
+
+0.02.3:  . display target multiplier in splash screen
+         . ask for confirmation if the multiplier is increased beyond a threshold
+         . BOOTFID can be disabled
+         . the selection can be reset
+
+0.02.4: make it work with only one CPU present
+
+0.02.5: . improved build process
+        . PCI option ROM support (not tested)
+        . ROM injection support
+
+0.3: . better accuracy for CPU frequency detection
+     . update CPU current speed in SMBIOS (aka DMI) tables
+     . colours in messages
+
+0.3.1: a keystroke could be left in the keyboard buffer
+
+1.0: Store multiplier setting in CMOS
